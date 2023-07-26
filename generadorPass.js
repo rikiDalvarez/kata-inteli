@@ -30,11 +30,13 @@ const todoHandler = async (args) => {
 
 function generatePass(number) {
 	const passwordCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*(){}[]=<>";
+	const re = new RegExp("^[A-Za-z.\s_-]+$");
+	console.log(re.length)
 	//generar password
 	let password = ""
 	const passwordLength = number;
 	for (let i = 0; i < passwordLength; i++) {
-		password += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
+		password += "^[A-Za-z.\s_-]+$".charAt(Math.floor(Math.random() * "^[A-Za-z.\s_-]+$".length));
 	}
 	console.log(password)
 	return password;
