@@ -11,12 +11,6 @@ const todoHandler = async (args) => {
 		case "generate":
 			console.log(generatePass(args[3]));
 			break;
-		case "help":
-			logAppCommands();
-			break;
-		case "ls":
-			listTodos();
-			break;
 		default:
 			console.log(`Please enter a valid command:
 				- ls,
@@ -30,13 +24,11 @@ const todoHandler = async (args) => {
 
 function generatePass(number) {
 	const passwordCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*(){}[]=<>";
-	const re = new RegExp("^[A-Za-z.\s_-]+$");
-	console.log(re.length)
 	//generar password
 	let password = ""
 	const passwordLength = number;
 	for (let i = 0; i < passwordLength; i++) {
-		password += "^[A-Za-z.\s_-]+$".charAt(Math.floor(Math.random() * "^[A-Za-z.\s_-]+$".length));
+		password += passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
 	}
 	console.log(password)
 	return password;
